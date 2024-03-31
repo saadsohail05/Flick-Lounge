@@ -1,0 +1,475 @@
+/*** Button Start ***/
+body {
+    font-family: "Cairo", sans-serif;
+    color: white;
+    background-color: #181616;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* logo */
+  .logo {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  .main-color {
+    color: #c0392b;
+   
+  }
+  .toplogo {
+    height: 13rem;
+    width: 13rem;
+  }
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+  
+  .toplogo {
+    max-height: 150px;
+    width: auto;
+    height: auto;
+  }
+  li,p{
+      padding: 2px;
+  }
+/* Headings */
+#partb{
+    font-family: open sans, Arial, Helvetica, sans-serif;
+    font-size: 74px;
+    font-weight: 800;
+    line-height: 140%;
+}
+#partc{
+    font-family: open sans, Arial, Helvetica, sans-serif;
+    font-size: 33px;
+    color: #ddd4d4;
+    
+    
+}
+.txt-rotate{
+    font-family: open sans, Arial, Helvetica, sans-serif;
+    color: #aad0ff;
+    font-size: 74px;
+    line-height: 140%;
+    font-weight: 800;
+}
+
+b{
+    font-weight: 300;
+    font-weight: bold;
+    font-size: 38px;
+}
+
+  /* signin */
+  .btn {
+    color: #ffffff;
+    padding: 0.25rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+  }
+  .btn-hover::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #c0392b;
+    transition: 0.3s ease-in-out;
+  }
+  a.logo:hover,
+  a.btn:hover {
+    color: unset;
+  }
+  .btn-hover:hover::before {
+    width: 100%;
+  }
+  .btn i,
+  .btn span {
+    z-index: 1;
+  }
+  .btn i {
+    margin-right: 1rem;
+  }
+  
+  .btn-square,
+  .btn-sm-square,
+  .btn-md-square,
+  .btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50%;
+  }
+ 
+  /*** Navbar ***/
+  .navbar-light .navbar-nav .nav-link {
+    font-family: "Cairo", sans-serif;
+    position: relative;
+    padding: 35px 15px;
+    color: var(--bs-white) !important;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 700;
+    outline: none;
+    transition: 0.5s;
+  }
+  
+  .sticky-top.navbar-light .navbar-nav .nav-link {
+    padding: 20px 15px;
+    color: white !important;
+  }
+  
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .nav-link.active {
+    color: var(--bs-white) !important;
+  }
+  
+  .navbar-light .navbar-brand h1 {
+    color: var(--bs-white);
+  }
+  
+  .sticky-top.navbar-light .navbar-brand h1 {
+    color: var(--bs-primary);
+  }
+  
+  .navbar-light .navbar-brand img {
+    max-height: 60px;
+    transition: 0.5s;
+  }
+  
+  .sticky-top.navbar-light .navbar-brand img {
+    max-height: 45px;
+  }
+  
+  .navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  /* Override Bootstrap navbar link hover effect */
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .nav-link.active {
+    color: red !important; /* Revert color to initial */
+  }
+  .nav-menu a:hover {
+    color: red;
+  }
+  
+  a.btn:hover {
+    color: unset;
+  }
+  
+  @media (min-width: 1200px) {
+    .navbar .nav-item .dropdown-menu {
+      display: block;
+      visibility: hidden;
+      top: 100%;
+      transform: rotateX(-75deg);
+      transform-origin: 0% 0%;
+      border: 0;
+      border-radius: 10px;
+      transition: 0.5s;
+      opacity: 0;
+    }
+  }
+  
+  @media (max-width: 991.98px) {
+    .sticky-top.navbar-light {
+      position: relative;
+      background: #221f1f;
+    }
+  
+    .navbar-light .navbar-brand h1 {
+      color: var(--bs-primary);
+    }
+  
+    .navbar.navbar-expand-lg .navbar-toggler {
+      padding: 10px 20px;
+      border: 1px solid var(--bs-primary);
+      color: var(--bs-primary);
+    }
+  
+    .navbar-light .navbar-collapse {
+      margin-top: 15px;
+      border-top: 1px solid #dddddd;
+      background-color: #221f1f;
+    }
+  
+    .navbar-light .navbar-nav .nav-link,
+    .sticky-top.navbar-light .navbar-nav .nav-link {
+      padding: 10px 0;
+      color: white !important;
+    }
+  
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link.active {
+      color: var(--bs-primary) !important;
+    }
+  
+    .navbar-light .navbar-brand img {
+      max-height: 45px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+   
+   
+    .navbar-light .navbar-nav .nav-link::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 0;
+      bottom: -1px;
+      left: 0;
+      background: var(--bs-primary);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    .section {
+      padding-top: 80px;
+    }
+    .navbar-light {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 999;
+      transition: height 0.5s; /* Add transition property */
+    }
+  
+    .sticky-top.navbar-light {
+      position: fixed;
+      background: #221f1f;
+      transition: height 0.5s; /* Add transition property */
+    }
+  
+  }
+  /* Footer */
+  
+  footer.section {
+    margin-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+    background-color: #221f1f;
+  }
+  
+  footer a:hover {
+    color: #c0392b;
+  }
+  
+  footer a.logo {
+    margin-top: 2.5rem;
+    display: block;
+  }
+  
+  footer a.logo:hover {
+    color: unset;
+  }
+  
+  .social-list {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .social-item {
+    --size: 30px;
+    height: 30px;
+    width: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: white;
+    color: #c0392b;
+  }
+  
+  .social-item:hover {
+    background-color: #c0392b;
+    color: white;
+  }
+  
+  .social-item ~ .social-item {
+    margin-left: 20px;
+  }
+  
+  footer .content {
+    margin-top: 20px;
+  }
+  
+  .footer-menu {
+    list-style-type: none;
+  }
+  
+  .footer-menu a {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .footer-menu a:hover {
+    transform: translateX(5px);
+  }
+  
+  .copyright {
+    padding: 10px;
+    border-top: 1px solid #181616;
+    background-color: #221f1f;
+    text-align: center;
+  }
+  .container {
+    max-width: 1920px;
+    padding: 0 40px;
+    margin: auto;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+  
+  
+  /*** Carousel Hero Header Start ***/
+  .carousel-header .carousel-control-prev,
+  .carousel-header .carousel-control-next {
+    background: transparent;
+  }
+  
+  .carousel-header .carousel-control-prev .carousel-control-prev-icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 25px 30px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 50px;
+    background-size: 60% 60%;
+  }
+  
+  .carousel-header .carousel-control-next .carousel-control-next-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 25px 30px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 0;
+    background-size: 60% 60%;
+  }
+  
+  .carousel-header .carousel .carousel-indicators li,
+  .carousel-header .carousel .carousel-indicators li,
+  .carousel-header .carousel .carousel-indicators li {
+    opacity: 0;
+  }
+  
+  .carousel-header .carousel-inner .carousel-item {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  .carousel-header .carousel-inner .carousel-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel-header .carousel-inner .carousel-item .carousel-caption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-header .carousel-inner .carousel-item img,
+    .carousel-header .carousel-inner .carousel-item .carousel-caption {
+      height: 700px;
+      margin-top: -100px;
+    }
+  
+    .carousel-header {
+      height: 700px !important;
+    }
+  
+    .carousel-header .carousel-control-prev .carousel-control-prev-icon,
+    .carousel-header .carousel-control-next .carousel-control-next-icon {
+      opacity: 0;
+    }
+  
+  }
+  /*** Carousel Hero Header End ***/
+  
+  /*** Single Page Hero Header Start ***/
+  .bg-breadcrumb {
+    background: linear-gradient(rgba(19, 53, 123, 0.5), rgba(19, 53, 123, 0.5)),
+      url(../img/breadcrumb-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 150px 0 50px 0;
+  }
+  
+  .bg-breadcrumb .breadcrumb-item a {
+    color: var(--bs-secondary) !important;
+  }
+  /*** Single Page Hero Header End ***/
+  /* RESPONSIVE */
+  
+  @media only screen and (max-width: 1280px) {
+      html {
+          font-size: 14px;
+      }
+  
+      .hero-slide-item {
+          padding-top: 50%;
+      }
+  
+      .item-content-wraper {
+          width: 50%;
+      }
+      footer.a.logo{
+          margin-top: 2.5rem;
+      }
+  }
+  
+  @media only screen and (max-width: 850px) {
+      html {
+          font-size: 12px;
+      }
+  
+      .container {
+          padding: 0 15px;
+      }
+  
+     
+  }
+  
