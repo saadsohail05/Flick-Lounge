@@ -58,7 +58,7 @@ body {
     font-weight: 800;
 }
 
-b{
+.bolditems{
     font-weight: 300;
     font-weight: bold;
     font-size: 38px;
@@ -169,7 +169,9 @@ b{
   .nav-menu a:hover {
     color: red;
   }
-  
+  .textbtn:hover{
+    color: red !important;
+  }
   a.btn:hover {
     color: unset;
   }
@@ -341,8 +343,19 @@ b{
     flex-wrap: wrap;
     margin: 0 -15px;
   }
-  
-  
+  .desc{
+    font-family: open sans, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 140%;
+}
+.desc1{
+    font-family: open sans, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: #dddddd;
+}
+
   /*** Carousel Hero Header Start ***/
   .carousel-header .carousel-control-prev,
   .carousel-header .carousel-control-next {
@@ -462,14 +475,59 @@ b{
   }
   
   @media only screen and (max-width: 850px) {
-      html {
-          font-size: 12px;
-      }
-  
-      .container {
-          padding: 0 15px;
-      }
-  
-     
-  }
-  
+    .footer-menu {
+        padding: 0;
+        margin: 0;
+        
+    }
+
+    .footer-menu li {
+        list-style: none;
+        margin-bottom: 10px;
+    
+    }
+
+    .footer-menu li p {
+        margin: 0;
+    }
+
+    .col-3 {
+        width: 50%; 
+    }
+
+    .footer-menu li img {
+        max-width: 100%;
+        height: auto;
+    }
+    .desc {
+        margin-top: -10rem; 
+
+
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    #carcap {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .carousel-caption span {
+        font-size: 2rem; /* Adjust font size for h1 */
+        margin-bottom: 1rem; /* Adjust margin bottom for h1 */
+    
+    }
+
+    #partc,#partb{
+        font-size: 1rem; /* Adjust font size for elements with partc id */
+        margin-bottom: 0.5rem; /* Adjust margin bottom for elements with partc id */
+        color: red;
+    }
+    .bolditems{
+        font-size: 1rem; /* Adjust font size for elements with partc id */
+        margin-bottom: 0.5rem; /* Adjust margin bottom for elements with partc id */
+        color: red;
+    }
+
+    /* Add any additional styles for other elements as needed */
+}
