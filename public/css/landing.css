@@ -9,7 +9,8 @@ body {
     margin: 0;
     box-sizing: border-box;
   }
-  
+
+
   /* logo */
   .logo {
     font-size: 2rem;
@@ -343,17 +344,39 @@ body {
     flex-wrap: wrap;
     margin: 0 -15px;
   }
+  .text{
+    padding: 1rem;
+  }
   .desc{
     font-family: open sans, Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: 600;
     line-height: 140%;
+    color: rgb(170, 187, 204)
 }
 .desc1{
     font-family: open sans, Arial, Helvetica, sans-serif;
     font-size: 34px;
     font-weight: 400;
-    color: #dddddd;
+    color: rgb(170, 187, 204)
+}
+.desc2{
+    font-family: open sans, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: rgb(170, 187, 204)
+}
+.txthead{
+    font-family: open sans, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    color: rgb(170, 187, 204)
+}
+a.desc2:hover{
+    color: red;
+}
+.custommt {
+    margin-top: 4rem; 
 }
 
   /*** Carousel Hero Header Start ***/
