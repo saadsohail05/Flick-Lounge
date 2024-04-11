@@ -60,6 +60,7 @@ form{
     border-radius: 6px;
   
 }
+
 .field input{
     outline: none;
     padding: 0 15px;
@@ -170,6 +171,11 @@ a.google span{
     font-size: 12px;
     margin: 5px;
     margin-bottom: 9rem;
+}
+.centered-paragraph {
+    text-align: center;
+    margin-top: 20px; /* Adjust margin-top as needed */
+    color: #959393; /* Adjust color as needed */
 }
 
 @media screen and (max-width: 768px) {
