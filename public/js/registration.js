@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const signupEmail = document.getElementById('signup-email').value;
             const signupPassword = document.getElementById('signup-password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
+            const passwordMatchError = document.getElementById('password-match-error');
 
             // Validate signup form inputs
             const isSignupEmailValid = validateEmail(signupEmail);
@@ -74,9 +75,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Perform signup form submission or other desired actions
                 console.log('Signup form is valid. Submitting...');
                 // Add your signup logic here
+                passwordMatchError.textContent = ''; // Clear any previous error message
             } else {
                 // Display error messages or perform other error handling
                 console.log('Signup form is invalid. Please check your inputs.');
+                if (!isConfirmPasswordValid) {
+                    passwordMatchError.textContent = 'Password and Confirm Password do not match !';
+                } else {
+                    passwordMatchError.textContent = ''; // Clear the error message if passwords match
+                }
             }
         });
     }

@@ -58,6 +58,7 @@ form{
     font-size: 16px;
     font-weight: 400;
     border-radius: 6px;
+  
 }
 .field input{
     outline: none;
@@ -86,6 +87,7 @@ form{
     transition: all 0.3s ease;
     cursor: pointer;
     padding: 12px 20px; 
+    margin-top: 5px;
 }
 .field button:hover{
     background-color: #016dcb;
@@ -162,6 +164,12 @@ a.google span{
     font-weight: 500;
     opacity: 0.6;
     color: #232836;
+}
+#password-match-error {
+    color: red;
+    font-size: 12px;
+    margin: 5px;
+    margin-bottom: 9rem;
 }
 
 @media screen and (max-width: 768px) {
