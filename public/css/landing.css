@@ -544,12 +544,12 @@ a.desc2:hover{
     #partc,#partb{
         font-size: 1rem; /* Adjust font size for elements with partc id */
         margin-bottom: 0.5rem; /* Adjust margin bottom for elements with partc id */
-        color: red;
+       
     }
     .bolditems{
         font-size: 1rem; /* Adjust font size for elements with partc id */
         margin-bottom: 0.5rem; /* Adjust margin bottom for elements with partc id */
-        color: red;
+        
     }
 
     /* Add any additional styles for other elements as needed */
