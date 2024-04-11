@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign in </title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/public/css/registration.css">
+                
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+                        
+    </head>
+    <style>
+        .resend-code {
+            color: #2d75a4 !important;
+            text-decoration: none !important;
+        }
+    </style>
+    <body>
+        <section class="container forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Verify Your Account</header>
+                    <p class="centered-paragraph">We've sent an verification code  to <span id="email-content"></span> to verify your email
+                        address and activate your account.</p>
+
+                    <form action="#" id="login-form">
+                        <div class="field input-field">
+                            <input type="text" placeholder="Enter Your Code Here..." class="input" id="login-email" required>
+                        </div>
+                        
+                        <div class="field button-field">
+                            <button type="submit">Send Request</button>
+                        </div>
+                        <div class="form-link">
+                            <a href="#" class="resend-code">Resend the Code</a>
+                        </div>
+                    </form>
+                
+        </section>
+
+        <!-- JavaScript -->
+        <!-- <script src="/public/js/forgot.js"></script> -->
+    </body>
+</html>
