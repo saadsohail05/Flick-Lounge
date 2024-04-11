@@ -17,7 +17,7 @@ body {
     font-weight: 900;
   }
   .main-color {
-    color: #c0392b;
+    color:  #CC5500;
    
   }
   .toplogo {
@@ -84,7 +84,7 @@ body {
     left: 0;
     width: 50%;
     height: 100%;
-    background-color: #c0392b;
+    background-color: #CC5500;
     transition: 0.3s ease-in-out;
   }
   a.logo:hover,
@@ -165,13 +165,13 @@ body {
   /* Override Bootstrap navbar link hover effect */
   .navbar-light .navbar-nav .nav-link:hover,
   .navbar-light .navbar-nav .nav-link.active {
-    color: red !important; /* Revert color to initial */
+    color: #CC5500 !important; /* Revert color to initial */
   }
   .nav-menu a:hover {
-    color: red;
+    color: #CC5500;
   }
   .textbtn:hover{
-    color: red !important;
+    color:  #CC5500 !important;
   }
   a.btn:hover {
     color: unset;
@@ -273,7 +273,7 @@ body {
   }
   
   footer a:hover {
-    color: #c0392b;
+    color:  #CC5500;
   }
   
   footer a.logo {
@@ -299,11 +299,11 @@ body {
     place-items: center;
     border-radius: 50%;
     background-color: white;
-    color: #c0392b;
+    color:  #CC5500;
   }
   
   .social-item:hover {
-    background-color: #c0392b;
+    background-color:  #CC5500;
     color: white;
   }
   
@@ -373,7 +373,7 @@ body {
     color: rgb(170, 187, 204)
 }
 a.desc2:hover{
-    color: red;
+    color:  #CC5500;
 }
 .custommt {
     margin-top: 4rem; 
