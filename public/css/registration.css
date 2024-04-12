@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/public/img/LoginForms/loginbg.jpg");
+    background-image: url("/img/LoginForms/loginbg.jpg");
     background-size: cover;
     background-position: center;
     column-gap: 30px; 
