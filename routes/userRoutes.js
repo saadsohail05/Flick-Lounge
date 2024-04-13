@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const formController = require('../controllers/formController');
 
 router.get('/signin', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/User/signin.html')); // Render the sign-in form
@@ -25,4 +26,8 @@ router.post('/signup', (req, res) => {
 router.get('/request-password-reset', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/User/forgot.html')); // Render the sign-in form
 });
+
+router.post('/signin', formController.sendData)
+router.post('/signup', formController.sendData)
+
 module.exports = router;
