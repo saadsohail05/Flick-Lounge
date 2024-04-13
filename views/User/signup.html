@@ -19,12 +19,12 @@
         <div class="form signup">
             <div class="form-content">
                 <header>Join FlickLounge</header>
-                <form action="/forms" id="signup-form" method="post>
+                <form action="/user/signup" id="signup-form" method="POST">
                     <div class="field input-field">
-                        <input type="email" placeholder="Email" class="input" id="signup-email" required>
+                        <input type="email" name="email" placeholder="Email" class="input" id="signup-email" required>
                     </div>
                     <div class="field input-field">
-                        <input type="password" placeholder="Create password" class="password" id="signup-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                        <input type="password" name="password" placeholder="Create password" class="password" id="signup-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                     </div>
                     <div class="field input-field">
                         <input type="password" placeholder="Confirm password" class="password" id="confirm-password" required>

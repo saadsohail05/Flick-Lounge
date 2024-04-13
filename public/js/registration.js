@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Signup form is valid. Submitting...');
                 // Add your signup logic here
                 passwordMatchError.textContent = ''; // Clear any previous error message
+                signupForm.submit();
             } else {
                 // Display error messages or perform other error handling
                 console.log('Signup form is invalid. Please check your inputs.');

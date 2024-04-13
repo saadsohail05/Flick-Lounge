@@ -6,6 +6,10 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+app.use(express.json());
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
