@@ -49,6 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isLoginEmailValid && isLoginPasswordValid) {
                 // Perform login form submission or other desired actions
                 console.log('Login form is valid. Submitting...');
+                loginForm.submit();
+
                 // Add your login logic here
             } else {
                 // Display error messages or perform other error handling

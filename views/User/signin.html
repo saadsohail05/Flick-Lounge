@@ -20,10 +20,10 @@
                     <header>Sign in to FlickLounge</header>
                     <form action="/user/signin" id="login-form" method="POST">
                         <div class="field input-field">
-                            <input type="email" placeholder="Email" class="input" id="login-email" required>
+                            <input type="email" name="email" placeholder="Email" class="input" id="login-email" required>
                         </div>
                         <div class="field input-field">
-                            <input type="password" placeholder="Password" class="password" id="login-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                            <input type="password" name="password" placeholder="Password" class="password" id="login-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
                         <div class="form-link">
