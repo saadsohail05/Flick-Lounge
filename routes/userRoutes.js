@@ -19,6 +19,7 @@ router.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/User/signup.html')); // Render the sign-up form
 });
 router.post('/signup', userController.submit_form_data);
+router.post('/signin', userController.submit_form_data);
 // Route for handling sign-up form submission
 // router.post('/signup', (req, res) => {
 //     // Process sign-up form submission
