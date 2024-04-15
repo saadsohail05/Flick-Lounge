@@ -18,5 +18,8 @@ router.post('/signup', userController.submit_form_data);
 router.get('/request-password-reset', (req, res) => {
     res.render('User/forgot', { title: 'Forgot Password' });
 });
+router.get('/movies', (req, res) => {
+    res.render('User/moviespage', { title: 'Movies' });
 
+});
 module.exports = router;
