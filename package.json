@@ -12,6 +12,8 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "install": "^0.13.0",
+    "mongoose": "^8.3.2",
     "node-fetch": "^2.7.0",
     "nodemon": "^3.1.0"
   }
