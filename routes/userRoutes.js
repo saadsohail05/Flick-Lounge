@@ -7,13 +7,13 @@ router.get('/signin', (req, res) => {
     res.render('User/signin', { title: 'Sign In' });
 });
 
-router.post('/signin', userController.submit_form_data);
+// router.post('/signin', userController.submit_form_data);
 
 router.get('/signup', (req, res) => {
     res.render('User/signup', { title: 'Sign Up' });
 });
 
-router.post('/signup', userController.submit_form_data);
+router.post('/signup', userController.signup);
 
 router.get('/request-password-reset', (req, res) => {
     res.render('User/forgot', { title: 'Forgot Password' });

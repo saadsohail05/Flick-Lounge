@@ -1,4 +1,4 @@
-const {Schema,Model}=require('mongoose')
+const {Schema,model}=require('mongoose')
 const userSchema=new Schema({
 username:{
     type:String,
@@ -17,6 +17,6 @@ password:{
 }
 
 });
-// can add profile img and role
-const User=Model('userCredentials.model',userSchema)
+// can add profile img and role and password hashing
+const User=model('Users',userSchema)
 module.exports=User
