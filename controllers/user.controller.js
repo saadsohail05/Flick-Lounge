@@ -14,7 +14,7 @@ exports.signup = async (req, res) => {
         ] 
     });
     if (existingUser) {
-      return res.status(400).json({ message: 'Username or email already exists' });
+        return res.render('user/signup', { error: 'Username or email already exists' });
     }
     // Create a new user instance
    await UserCredentials.create({ username, email, password });
@@ -43,15 +43,14 @@ exports.signin = async (req, res) => {
         // Render the signin view with an error message
         return res.render('user/signin', { error: "That Email Address doesn't exist" });
       }
-  
       // Check if the provided password matches the user's password
       if (user.password !== password) {
         // Render the signin view with an error message
         return res.render('user/signin', { error: 'Invalid Password' });
       }
-  
       // Password is correct, sign in successful
-      res.status(200).json({ message: 'Sign-in successful', userId: user._id });
+      // res.status(200).json({ message: 'Sign-in successful', userId: user._id });
+      res.redirect('/')
     } catch (error) {
       // Handle any errors that occur during sign-in
       console.error('Error in sign-in:', error);
