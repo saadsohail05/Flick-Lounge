@@ -21,6 +21,9 @@
                 <header>Join FlickLounge</header>
                 <form action="/user/signup" id="signup-form" method="POST">
                     <div class="field input-field">
+                        <input type="username" name="username" placeholder="Username" class="input" id="signup-username" required pattern="^(?!^\d)(?!.*\.\.)(?!.*\.$)[\w.]{3,16}$" title="Username must start with a letter, can contain letters, numbers, underscores, hyphens, and periods, and must be between 3 and 16 characters long.">
+                    </div>
+                    <div class="field input-field">
                         <input type="email" name="email" placeholder="Email" class="input" id="signup-email" required>
                     </div>
                     <div class="field input-field">

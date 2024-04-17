@@ -63,23 +63,29 @@ document.addEventListener('DOMContentLoaded', function() {
     if (signupForm) {
         signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            const signupusername = document.getElementById('signup-username').value;
             const signupEmail = document.getElementById('signup-email').value;
             const signupPassword = document.getElementById('signup-password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
             const passwordMatchError = document.getElementById('password-match-error');
+         
 
             // Validate signup form inputs
             const isSignupEmailValid = validateEmail(signupEmail);
             const isSignupPasswordValid = validatePassword(signupPassword);
+            const isSignupusernameValid = validateUsername(signupusername);
+
+            
             const isConfirmPasswordValid = confirmPassword === signupPassword;
 
-            if (isSignupEmailValid && isSignupPasswordValid && isConfirmPasswordValid) {
+            if (isSignupusernameValid && isSignupEmailValid && isSignupPasswordValid && isConfirmPasswordValid) {
                 // Perform signup form submission or other desired actions
                 console.log('Signup form is valid. Submitting...');
                 // Add your signup logic here
                 passwordMatchError.textContent = ''; // Clear any previous error message
                 signupForm.submit();
-            } else {
+            }
+             else {
                 // Display error messages or perform other error handling
                 console.log('Signup form is invalid. Please check your inputs.');
                 if (!isConfirmPasswordValid) {
@@ -90,7 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
+    function validateUsername(username) {
+        // Username validation regex
+        const usernameRegex = /^(?!^\d)(?!.*\.\.)(?!.*\.$)[\w.]{3,16}$/;
+        return usernameRegex.test(username);
+    }
     function validateEmail(email) {
         // Simple email validation regex
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
