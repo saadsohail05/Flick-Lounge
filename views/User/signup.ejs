@@ -18,8 +18,8 @@
         <!-- Signup Form -->
         <div class="form signup">
             <div class="form-content">
-                <% if (locals.error) { %>
-                    <header>Join FlickLounge<br> <p id="errorp"> <%=locals.error%></p></header>
+                <% if (locals.msg) { %>
+                    <header>Join FlickLounge<br> <p id="errorp"> <%=locals.msg%></p></header>
                 <% } else { %>
                     <header>Join FlickLounge</header>
                 <% } %>

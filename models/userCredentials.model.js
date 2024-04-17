@@ -15,7 +15,6 @@ password:{
     required:true
   
 }
-
 });
 // can add profile img and role and password hashing
 const User=model('Users',userSchema)

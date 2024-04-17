@@ -18,13 +18,17 @@
             color: #2d75a4 !important;
             text-decoration: none !important;
         }
+        #email-content{
+            color: white;
+            font-weight: bold;
+        }
     </style>
     <body>
         <section class="container forms">
             <div class="form login">
                 <div class="form-content">
                     <header>Verify Your Account</header>
-                    <p class="centered-paragraph">We've sent an verification code  to <span id="email-content"></span> to verify your email
+                    <p class="centered-paragraph">We've sent an verification code to <span id="email-content"><%=email %></span> to verify your email
                         address and activate your account.</p>
 
                     <form action="#" id="login-form">

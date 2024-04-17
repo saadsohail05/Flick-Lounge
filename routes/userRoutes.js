@@ -22,4 +22,12 @@ router.get('/movies', (req, res) => {
     res.render('User/moviespage', { title: 'Movies' });
 
 });
+router.get('/movies', (req, res) => {
+    res.render('User/moviespage', { title: 'Movies' });
+
+});
+router.get('/verify-email', (req, res) => {
+    res.render('User/verifyemail', { title: 'Verify Email' });
+
+});
 module.exports = router;
