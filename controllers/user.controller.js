@@ -1,5 +1,19 @@
   const UserCredentials = require('../models/userCredentials.model');
+  const nodemailer = require('nodemailer');
 
+
+
+  const sendverificationcode = async (username,email,userid) => {
+    try{
+      nodemailer.createTransport({
+        
+      })
+    }
+    catch(error){
+
+    }
+
+  }
 
   exports.signup = async (req, res) => {
     try {
@@ -17,11 +31,11 @@
           return res.render('user/signup', { msg: 'Username or email already exists' });
       }
       // Create a new user instance
-    await UserCredentials.create({ username, email, password });
+   const user= await UserCredentials.create({ username, email, password });
       // Respond with a success message
       // res.status(201).json({ message: 'User created successfully' });
     
-
+      sendverificationcode(req.body.username,req.body.email,user._id);
       res.render('user/verifyemail', { email });
     
     } catch (error) {
