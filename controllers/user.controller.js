@@ -19,6 +19,7 @@ exports.signup = async (req, res) => {
 
     // Create a new user instance
    await UserCredentials.create({ username, email, password });
+   res.redirect('/');
 
   
     // Respond with a success message
@@ -28,5 +29,5 @@ exports.signup = async (req, res) => {
     console.error('Error in sign-up:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
-  res.redirect('/');
+  
 };
