@@ -7,7 +7,7 @@ router.get('/signin', (req, res) => {
     res.render('User/signin', { title: 'Sign In' });
 });
 
-// router.post('/signin', userController.submit_form_data);
+router.post('/signin', userController.signin);
 
 router.get('/signup', (req, res) => {
     res.render('User/signup', { title: 'Sign Up' });

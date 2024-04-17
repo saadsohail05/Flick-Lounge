@@ -28,7 +28,14 @@
     background: rgba(17, 15, 15, 0.9);
     border-radius: 0.625rem;
 }
+#errorp{
+    color: rgb(184, 42, 68);
+    font-size: 19px;
+    padding-top: 1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+   
+}
 header{
     font-size: 28px;
     font-weight: 600;

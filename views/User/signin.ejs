@@ -15,9 +15,14 @@
     </head>
     <body>
         <section class="container forms">
+            
             <div class="form login">
                 <div class="form-content">
-                    <header>Sign in to FlickLounge</header>
+                    <% if (locals.error) { %>
+                        <header>Sign in to FlickLounge <br> <p id="errorp"> <%=locals.error%></p></header>
+                    <% } else { %>
+                        <header>Sign in to FlickLounge</header>
+                    <% } %>
                     <form action="/user/signin" id="login-form" method="POST">
                         <div class="field input-field">
                             <input type="email" name="email" placeholder="Email" class="input" id="login-email" required>
@@ -52,7 +57,7 @@
                 </div>
             </div>
         </section>
-
+       
         <!-- JavaScript -->
         <script src="/js/registration.js"></script>
     </body>
