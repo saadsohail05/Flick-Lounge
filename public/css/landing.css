@@ -1,4 +1,86 @@
 
+  /*** Carousel Hero Header Start ***/
+  .carousel-header .carousel-control-prev,
+  .carousel-header .carousel-control-next {
+    background: transparent;
+  }
+  
+  .carousel-header .carousel-control-prev .carousel-control-prev-icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 25px 30px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 50px;
+    background-size: 60% 60%;
+  }
+  
+  .carousel-header .carousel-control-next .carousel-control-next-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 25px 30px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 0;
+    background-size: 60% 60%;
+  }
+  
+  .carousel-header .carousel .carousel-indicators li,
+  .carousel-header .carousel .carousel-indicators li,
+  .carousel-header .carousel .carousel-indicators li {
+    opacity: 0;
+  }
+  
+  .carousel-header .carousel-inner .carousel-item {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  .carousel-header .carousel-inner .carousel-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel-header .carousel-inner .carousel-item .carousel-caption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-header .carousel-inner .carousel-item img,
+    .carousel-header .carousel-inner .carousel-item .carousel-caption {
+      height: 700px;
+      margin-top: -100px;
+    }
+  
+    .carousel-header {
+      height: 700px !important;
+    }
+  
+    .carousel-header .carousel-control-prev .carousel-control-prev-icon,
+    .carousel-header .carousel-control-next .carousel-control-next-icon {
+      opacity: 0;
+    }
+  
+  }
   /*** Carousel Hero Header End ***/
   
   /*** Single Page Hero Header Start ***/
