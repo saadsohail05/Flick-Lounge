@@ -1,20 +1,18 @@
   const UserCredentials = require('../models/userCredentials.model');
-  const nodemailer = require('nodemailer');
+  const { sendEmail } = require('../mail/mail');
+  const otpGenerator = require('otp-generator')
 
+ // Generate a random 6-digit OTP
+  const generateOTP=()=>{
+  const OTP = otpGenerator.generate(6,{
+  upperCaseAlphabets: false,
+  specialChars:false
 
+});
+return OTP;
+  };
 
-  const sendverificationcode = async (username,email,userid) => {
-    try{
-      nodemailer.createTransport({
-        
-      })
-    }
-    catch(error){
-
-    }
-
-  }
-
+// Signup a new user
   exports.signup = async (req, res) => {
     try {
       // Extract username, email, and password from request body
@@ -35,8 +33,14 @@
       // Respond with a success message
       // res.status(201).json({ message: 'User created successfully' });
     
-      sendverificationcode(req.body.username,req.body.email,user._id);
-      res.render('user/verifyemail', { email });
+    // Generate OTP
+    const otp = generateOTP();
+
+    // Send OTP via email
+    const subject = 'Verification OTP for FlickLounge';
+    const text = `Hi ${username},\n\nYour OTP (One-Time Password) for verification is: ${otp}`;
+    await sendEmail(email, subject, text);
+    res.render('user/verifyemail', { email });
     
     } catch (error) {
       // Handle any errors that occur during sign-up
@@ -45,6 +49,7 @@
     }
     
   };
+  // Signin a user
   exports.signin = async (req, res) => {
       try {
         // Extract email and password from request body
