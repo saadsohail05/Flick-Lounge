@@ -1,0 +1,226 @@
+#main-search {
+    position: relative;
+    z-index: 1000; /* Ensure search box appears above navbar */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.42857143;
+    font-family: Arimo,Arial,Helvetica,lucida grande,sans-serif;
+    letter-spacing: -.03em;
+    font-size: 16px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    padding: 50px 0;
+}
+
+
+.navbar {
+    position: relative; /* Ensure navbar does not get covered by search box */
+    z-index: 999; /* Ensure navbar is behind search box */
+}
+
+#main-search-fields {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.42857143;
+    font-family: Arimo,Arial,Helvetica,lucida grande,sans-serif;
+    letter-spacing: -.03em;
+    font-size: 16px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 880px;
+}
+
+form {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.42857143;
+    font-family: Arimo,Arial,Helvetica,lucida grande,sans-serif;
+    letter-spacing: -.03em;
+    font-size: 16px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    font: inherit;
+    line-height: inherit;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    -webkit-appearance: none;
+    border: 0;
+    color: #a2a2a2;
+    -webkit-border-radius: 3px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    background: #282828;
+}
+
+.selects-container {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.42857143;
+    font-family: Arimo,Arial,Helvetica,lucida grande,sans-serif;
+    letter-spacing: -.03em;
+    font-size: 16px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    margin-top: 15px;
+    display: inline-block;
+    width: 130px;
+    margin-right: 20px;
+    float: left;
+    position: relative;
+}
+
+
+select {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    font: inherit;
+    text-transform: none;
+    line-height: inherit;
+    font-family: inherit;
+    margin: 0;
+    -webkit-border-radius: 3px;
+    width: 130px;
+    padding-left: 10px;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    height: 40px;
+    color: #a2a2a2;
+    font-size: .9em;
+    font-weight: 400;
+    background: #282828;
+    border: 0;
+    cursor: pointer;
+}
+
+.select-arrow {
+    position: absolute;
+    top: 55%;
+    right: 10px;
+    pointer-events: none; /* Ensures the arrow doesn't interfere with select functionality */
+}
+
+.select-arrow i {
+    color: #a2a2a2;
+}
+
+option {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    font: inherit;
+    text-transform: none;
+    line-height: inherit;
+    font-family: inherit;
+    color: #a2a2a2;
+    font-size: .9em;
+    box-sizing: border-box;
+}
+
+p {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.42857143;
+    font-family: Arimo,Arial,Helvetica,lucida grande,sans-serif;
+    letter-spacing: -.03em;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: .9em;
+    color: #5a5a5a;
+    float: left;
+}
+
+.searchTerm {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.42857143;
+    font-family: Arimo,Arial,Helvetica,lucida grande,sans-serif;
+    letter-spacing: -.03em;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    float: left!important;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 1.35em;
+    color: #5a5a5a;
+}
+
+#main-search-btn {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.42857143;
+    font-family: Arimo,Arial,Helvetica,lucida grande,sans-serif;
+    letter-spacing: -.03em;
+    font-size: 16px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    margin-top: 41px;
+}
+
+#main-search-btn input {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    font: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    background: #CC5500;
+    -webkit-border-radius: 3px;
+    display: block;
+    font-weight: 700;
+    color: #fff;
+    top: 35px;
+    font-size: 16px;
+    padding: 7px 0;
+    margin: 0 auto;
+    transition: all 300ms ease;
+    -webkit-appearance: button;
+    cursor: pointer;
+    width: 100px;
+    position: static;
+    border: 0;  
+}
+

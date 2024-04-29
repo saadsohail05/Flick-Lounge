@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Search
+    </title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/nav-footer.css" rel="stylesheet">
+    <link href="/css/search.css" rel="stylesheet">
+
+</head>
+
+<style>
+  
+</style>
+
+<body>
+
+     <!-- NAVBAR -->
+    
+<div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <!-- <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i><span class="main-color"><img class="toplogo" src=" /img/logo.png" alt="logo"></span>
+                </a> -->
+                <a href="#" class="logo">
+                    <i class='bx bxs-movie-play bx-tada main-color'></i><span class="main-color"> F</span>lick<span class="main-color">L</span>ounge
+                </a>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="/user/search/" class="nav-item nav-link ">Browse</a>
+                    <a href="/user/movies/" class="nav-item nav-link ">Movies</a>
+                    <a href="about.html" class="nav-item nav-link">Lists</a>
+                    <a href="services.html" class="nav-item nav-link">Services</a>
+                    <a href="packages.html" class="nav-item nav-link">Packages</a>
+                    <a href="blog.html" class="nav-item nav-link">Blog</a>
+                    <a  href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="/user/signin/" class="btn btn-hover">
+                    <span>Sign in</span>
+                </a>
+                <a href="/user/signup/" class="btn btn-hover">
+                    <span>Sign up</span>
+                </a>
+            </div>
+            
+        </nav>
+ <!-- Search box -->
+    <div id="main-search" class="content-dark hidden-sm hidden-xs">
+        <div class="container">
+            <form method="post" action="https://yts.mx/search-movies" accept-charset="UTF-8">
+                <input name="_token" type="hidden" value="1f7ecbb9f5612248f10addff06d37501cee143625e62cd0d4e430b3ec0b311c6">
+                    <div id="main-search-fields" style="width: 880px;">
+                        <p class="searchTerm">Search Term:</p>
+                            <input name="keyword" autocomplete="off" type="search">
+                                <div class="selects-container">
+                                    <p>Genre:</p>
+                                    <select name="genre">
+                                        <option value="all">All</option>
+                                        <option value="action">Action</option>
+                                        <option value="adventure">Adventure</option>
+                                        <option value="animation">Animation</option>
+                                        <option value="comedy">Comedy</option>
+                                        <option value="crime">Crime</option>
+                                        <option value="documentary">Documentary</option>
+                                        <option value="drama">Drama</option>
+                                        <option value="family">Family</option>
+                                        <option value="fantasy">Fantasy</option>
+                                        <option value="history">History</option>
+                                        <option value="horror">Horror</option>
+                                        <option value="music">Music</option>
+                                        <option value="mystery">Mystery</option>
+                                        <option value="romance">Romance</option>
+                                        <option value="sci-fi">Sci-Fi</option>
+                                        <option value="talk-show">Talk-Show</option>
+                                        <option value="thriller">Thriller</option>
+                                        <option value="war">War</option>
+                                        <option value="western">Western</option>
+                                    </select>
+                                    <span class="select-arrow">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                                <div class="selects-container">
+                                    <p>Rating:</p>
+                                    <select name="rating">
+                                    <option value="0">All</option>
+                                        <option value="9">9+</option>
+                                        <option value="8">8+</option>
+                                        <option value="7">7+</option>
+                                        <option value="6">6+</option>
+                                        <option value="5">5+</option>
+                                        <option value="4">4+</option>
+                                        <option value="3">3+</option>
+                                        <option value="2">2+</option>
+                                        <option value="1">1+</option>
+                                    </select>
+                                    <span class="select-arrow">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                        </div>
+        </div>
+    </div>
+    <div id="main-search-btn">
+        <input class="button-green-download2-big" type="submit" value="Search">
+        </div>
+    </form>
+</div>
+
+ <!-- FOOTER SECTION -->
+ <footer class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-md-6 col-sm-12">
+                <div class="content">
+                    <a href="#" class="logo">
+                        <i class='bx bx-movie-play bx-tada main-color'></i><span class="main-color"> F</span>lick<span class="main-color">L</span>ounge
+                    </a>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et. Dolores, quibusdam?
+                    </p>
+                    <div class="social-list">
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-3 col-md-6 col-sm-6">
+                        <div class="content">
+                            
+                            <ul class="footer-menu">
+                                <li><p><b>Flix</b></p></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">My profile</a></li>
+                                <li><a href="#">Pricing plans</a></li>
+                                <li><a href="#">Contacts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3 col-md-6 col-sm-6">
+                        <div class="content">
+                            
+                            <ul class="footer-menu">
+                                <li><p><b>Browse</b></p></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">My profile</a></li>
+                                <li><a href="#">Pricing plans</a></li>
+                                <li><a href="#">Contacts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3 col-md-6 col-sm-6">
+                        <div class="content">
+                            
+                            <ul class="footer-menu">
+                                <li><p><b>Help</b></p></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">My profile</a></li>
+                                <li><a href="#">Pricing plans</a></li>
+                                <li><a href="#">Contacts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3 col-md-6 col-sm-6">
+                        <div class="content">
+                           
+                            <ul class="footer-menu">
+                                <li> <p><b>Download app</b></p></li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/img/Footer/google-play.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/img/Footer/app-store.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER SECTION -->
+ <!-- COPYRIGHT SECTION -->
+ 
+ <div class="copyright">
+    © 2024 Flick Lounge
+</div>
+<!-- END COPYRIGHT SECTION -->
+  
+
+ 
+
+    <!-- SCRIPT -->
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- OWL CAROUSEL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+    <!-- APP SCRIPT -->
+    <script src="/js/nav-foot.js"></script>
+
+</body>
+
+</html>

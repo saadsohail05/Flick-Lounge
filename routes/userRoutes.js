@@ -22,8 +22,8 @@ router.get('/movies', (req, res) => {
     res.render('User/moviespage', { title: 'Movies' });
 
 });
-router.get('/movies', (req, res) => {
-    res.render('User/moviespage', { title: 'Movies' });
+router.get('/search', (req, res) => {
+    res.render('User/search', { title: 'Search' });
 
 });
 router.get('/verify-email', (req, res) => {
