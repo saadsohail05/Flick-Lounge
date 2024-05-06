@@ -1,10 +1,8 @@
 #main-search {
     position: relative;
-    z-index: 1000; /* Ensure search box appears above navbar */
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     line-height: 1.42857143;
-    font-family: Arimo,Arial,Helvetica,lucida grande,sans-serif;
     letter-spacing: -.03em;
     font-size: 16px;
     text-align: center;
@@ -13,16 +11,15 @@
     box-sizing: border-box;
     margin: 0;
     width: 100%;
-    padding: 50px 0;
+    padding: 20px 0;
 }
 
 
 .navbar {
     position: relative; /* Ensure navbar does not get covered by search box */
-    z-index: 999; /* Ensure navbar is behind search box */
 }
 
-#main-search-fields {
+/* #main-search-fields {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     line-height: 1.42857143;
@@ -37,9 +34,9 @@
     padding: 0;
     display: inline-block;
     width: 880px;
-}
+} */
 
-form {
+/* form {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     line-height: 1.42857143;
@@ -52,8 +49,8 @@ form {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
+} */
+/* 
 input {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
@@ -73,7 +70,7 @@ input {
     box-sizing: border-box;
     height: 40px;
     background: #282828;
-}
+} */
 
 .selects-container {
     -webkit-text-size-adjust: 100%;
@@ -144,7 +141,7 @@ option {
     box-sizing: border-box;
 }
 
-p {
+/* p {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     line-height: 1.42857143;
@@ -160,8 +157,8 @@ p {
     font-size: .9em;
     color: #5a5a5a;
     float: left;
-}
-
+} */
+/* 
 .searchTerm {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
@@ -178,9 +175,9 @@ p {
     font-weight: 700;
     font-size: 1.35em;
     color: #5a5a5a;
-}
+} */
 
-#main-search-btn {
+/* #main-search-btn {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     line-height: 1.42857143;
@@ -196,10 +193,10 @@ p {
     display: inline-block;
     vertical-align: top;
     margin-left: 20px;
-    margin-top: 41px;
+    margin-top: 41px; 
 }
-
-#main-search-btn input {
+*/
+/* #main-search-btn input {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
@@ -222,5 +219,6 @@ p {
     width: 100px;
     position: static;
     border: 0;  
-}
+} */
+
 

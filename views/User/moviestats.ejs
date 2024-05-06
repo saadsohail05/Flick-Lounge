@@ -6,13 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Search
+        Statistics
     </title>
     <!-- Favicon -->
     <link rel="icon" href="/img/favicon.png" type="image/x-icon">
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <!-- OWL CAROUSEL -->
@@ -27,10 +26,7 @@
 </head>
 
 <style>
-    .card-img-top {
-        height: 300px; /* Adjust the height as needed */
-        object-fit: cover;
-    }
+  
 </style>
 
 <body>
@@ -70,112 +66,67 @@
             
         </nav>
  <!-- Search box -->
- <div id="main-search" class="content-dark hidden-sm hidden-xs">
-    <div class="container">
-        <form method="post" action="https://yts.mx/search-movies" accept-charset="UTF-8">
-            <input name="_token" type="hidden" value="1f7ecbb9f5612248f10addff06d37501cee143625e62cd0d4e430b3ec0b311c6">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="input-group">
-                        <span class="input-group-text">Search Term:</span>
-                        <input name="keyword" autocomplete="off" type="search" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="input-group">
-                        <span class="input-group-text">Type:</span>
-                        <select name="type" class="form-select">
-                            <option value="All">All</option>
-                            <option value="Movies">Movies</option>
-                            <option value="Series">Series</option>
-                            <option value="Animation">Animation</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="input-group">
-                        <span class="input-group-text">Genre:</span>
-                        <select name="genre" class="form-select">
-                            <option value="all">All</option>
-                            <option value="action">Action</option>
-                            <option value="adventure">Adventure</option>
-                            <option value="animation">Animation</option>
-                            <option value="comedy">Comedy</option>
-                            <option value="crime">Crime</option>
-                            <option value="documentary">Documentary</option>
-                            <option value="drama">Drama</option>
-                            <option value="family">Family</option>
-                            <option value="fantasy">Fantasy</option>
-                            <option value="history">History</option>
-                            <option value="horror">Horror</option>
-                            <option value="music">Music</option>
-                            <option value="mystery">Mystery</option>
-                            <option value="romance">Romance</option>
-                            <option value="sci-fi">Sci-Fi</option>
-                            <option value="talk-show">Talk-Show</option>
-                            <option value="thriller">Thriller</option>
-                            <option value="war">War</option>
-                            <option value="western">Western</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="input-group">
-                        <span class="input-group-text">Rating:</span>
-                        <select name="rating" class="form-select">
-                            <option value="0">All</option>
-                            <option value="9">9+</option>
-                            <option value="8">8+</option>
-                            <option value="7">7+</option>
-                            <option value="6">6+</option>
-                            <option value="5">5+</option>
-                            <option value="4">4+</option>
-                            <option value="3">3+</option>
-                            <option value="2">2+</option>
-                            <option value="1">1+</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <input class="btn btn-success" type="submit" value="Search">
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card">
-                <img src="https://img.yts.mx/assets/images/movies/here_come_the_co_eds_1945/medium-cover.jpg" class="card-img-top" alt="Here Come the Co-eds (1945)">
-                <div class="card-body">
-                    <h5 class="card-title">Here Come the Co-eds</h5>
-                    <p class="card-text">1945 | Comedy</p>
-                    <a href="https://yts.mx/movies/here-come-the-co-eds-1945" class="btn btn-primary">View Details</a>
-                </div>
-            </div>
-        </div>
-        <!-- Repeat the above card structure for other movies -->
-    </div>
-</div>
-
-    <!-- Pagination -->
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">«</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next »</a></li>
-            </ul>
+    <div id="main-search" class="content-dark hidden-sm hidden-xs">
+        <div class="container">
+            <form method="post" action="https://yts.mx/search-movies" accept-charset="UTF-8">
+                <input name="_token" type="hidden" value="1f7ecbb9f5612248f10addff06d37501cee143625e62cd0d4e430b3ec0b311c6">
+                    <div id="main-search-fields" style="width: 880px;">
+                        <p class="searchTerm">Search Term:</p>
+                            <input name="keyword" autocomplete="off" type="search">
+                                <div class="selects-container">
+                                    <p>Genre:</p>
+                                    <select name="genre">
+                                        <option value="all">All</option>
+                                        <option value="action">Action</option>
+                                        <option value="adventure">Adventure</option>
+                                        <option value="animation">Animation</option>
+                                        <option value="comedy">Comedy</option>
+                                        <option value="crime">Crime</option>
+                                        <option value="documentary">Documentary</option>
+                                        <option value="drama">Drama</option>
+                                        <option value="family">Family</option>
+                                        <option value="fantasy">Fantasy</option>
+                                        <option value="history">History</option>
+                                        <option value="horror">Horror</option>
+                                        <option value="music">Music</option>
+                                        <option value="mystery">Mystery</option>
+                                        <option value="romance">Romance</option>
+                                        <option value="sci-fi">Sci-Fi</option>
+                                        <option value="talk-show">Talk-Show</option>
+                                        <option value="thriller">Thriller</option>
+                                        <option value="war">War</option>
+                                        <option value="western">Western</option>
+                                    </select>
+                                    <span class="select-arrow">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                                <div class="selects-container">
+                                    <p>Rating:</p>
+                                    <select name="rating">
+                                    <option value="0">All</option>
+                                        <option value="9">9+</option>
+                                        <option value="8">8+</option>
+                                        <option value="7">7+</option>
+                                        <option value="6">6+</option>
+                                        <option value="5">5+</option>
+                                        <option value="4">4+</option>
+                                        <option value="3">3+</option>
+                                        <option value="2">2+</option>
+                                        <option value="1">1+</option>
+                                    </select>
+                                    <span class="select-arrow">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                        </div>
         </div>
     </div>
+    <div id="main-search-btn">
+        <input class="button-green-download2-big" type="submit" value="Search">
+        </div>
+    </form>
 </div>
-
 
  <!-- FOOTER SECTION -->
  <footer class="section">

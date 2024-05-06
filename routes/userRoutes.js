@@ -26,6 +26,22 @@ router.get('/search', (req, res) => {
     res.render('User/search', { title: 'Search' });
 
 });
+router.get('/adminDashboard', (req, res) => {
+    res.render('User/admin', { title: 'Admin Dashboard' });
+
+});
+router.get('/moviestats', (req, res) => {
+    res.render('User/moviestats', { title: 'Your Statistics' });
+
+});
+router.get('/movielists', (req, res) => {
+    res.render('User/movielist', { title: 'Your List' });
+
+});
+router.get('/userProfile', (req, res) => {
+    res.render('User/profile', { title: 'Your Profile' });
+
+});
 router.get('/verify-email', (req, res) => {
     res.render('User/verifyemail', { title: 'Verify Email' });
 
