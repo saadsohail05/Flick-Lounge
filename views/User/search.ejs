@@ -72,8 +72,7 @@
  <!-- Search box -->
  <div id="main-search" class="content-dark hidden-sm hidden-xs">
     <div class="container">
-        <form method="post" action="https://yts.mx/search-movies" accept-charset="UTF-8">
-            <input name="_token" type="hidden" value="1f7ecbb9f5612248f10addff06d37501cee143625e62cd0d4e430b3ec0b311c6">
+        <form id="search-form" method="post" action="/user/search" accept-charset="UTF-8">
             <div class="row">
                 <div class="col-md-6">
                     <div class="input-group">
@@ -146,33 +145,21 @@
     </div>
 </div>
 
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card">
-                <img src="https://img.yts.mx/assets/images/movies/here_come_the_co_eds_1945/medium-cover.jpg" class="card-img-top" alt="Here Come the Co-eds (1945)">
-                <div class="card-body">
-                    <h5 class="card-title">Here Come the Co-eds</h5>
-                    <p class="card-text">1945 | Comedy</p>
-                    <a href="https://yts.mx/movies/here-come-the-co-eds-1945" class="btn btn-primary">View Details</a>
-                </div>
-            </div>
+<div class="movies-container">
+    <div class="container mt-5">
+        <div class="row justify-content-center" id="movies-container">
+            <!-- Movie results will be dynamically added here -->
         </div>
-        <!-- Repeat the above card structure for other movies -->
     </div>
 </div>
 
-    <!-- Pagination -->
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">«</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next »</a></li>
-            </ul>
-        </div>
+
+  <!-- Pagination -->
+<div class="row justify-content-center">
+    <div class="col-12">
+        <ul class="pagination">
+            <!-- Pagination links will be dynamically added here -->
+        </ul>
     </div>
 </div>
 
@@ -281,6 +268,102 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
     <!-- APP SCRIPT -->
     <script src="/js/nav-foot.js"></script>
+
+    <script>
+    document.getElementById('search-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const keyword = document.getElementById('keyword').value;
+    const type = document.getElementById('type').value;
+    const genre = document.getElementById('genre').value;
+    const rating = document.getElementById('rating').value;
+    const page = 1; // Initial page number
+
+    const response = await fetch('/user/search', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ keyword, type, genre, rating, page })
+    });
+
+    if (response.ok) {
+        const movies = await response.json();
+        // Update frontend to display movies and pagination
+        console.log(movies);
+        // Assuming you have a function to display movies
+        displayMovies(movies);
+        // Assuming you have a function to display pagination
+        displayPagination();
+    } else {
+        console.error('Error:', response.statusText);
+    }
+});
+
+function displayMovies(movies) {
+    const container = document.getElementById('movies-container');
+    container.innerHTML = ''; // Clear previous results
+
+    movies.forEach(movie => {
+        const card = document.createElement('div');
+        card.classList.add('col-lg-4', 'col-md-6', 'col-sm-12', 'mb-4');
+
+        card.innerHTML = `
+            <div class="card">
+                <img src="${movie.poster}" class="card-img-top" alt="${movie.title}">
+                <div class="card-body">
+                    <h5 class="card-title">${movie.title}</h5>
+                    <p class="card-text">${movie.year} | ${movie.genre}</p>
+                    <a href="${movie.url}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+function displayPagination(totalPages) {
+    const paginationContainer = document.querySelector('.pagination');
+    paginationContainer.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageLink = document.createElement('li');
+        pageLink.classList.add('page-item');
+        pageLink.innerHTML = `<a class="page-link" href="#" data-page="${i}">${i}</a>`;
+        paginationContainer.appendChild(pageLink);
+    }
+
+    // Add event listeners to pagination links
+    const pageLinks = document.querySelectorAll('.page-link');
+    pageLinks.forEach(link => {
+        link.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const page = parseInt(e.target.dataset.page);
+            // Make another request with the new page number
+            const response = await fetch('/user/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ keyword, type, genre, rating, page })
+            });
+
+            if (response.ok) {
+                const movies = await response.json();
+                // Update frontend to display new movies
+                console.log(movies);
+                // Assuming you have a function to display movies
+                displayMovies(movies);
+            } else {
+                console.error('Error:', response.statusText);
+            }
+        });
+    });
+}
+
+
+    </script>
 
 </body>
 

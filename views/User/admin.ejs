@@ -26,7 +26,35 @@
 </head>
 
 <style>
-  
+
+form {
+    max-width: 400px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 250px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
 </style>
 
 <body>
@@ -65,68 +93,35 @@
             </div>
             
         </nav>
- <!-- Search box -->
-    <div id="main-search" class="content-dark hidden-sm hidden-xs">
-        <div class="container">
-            <form method="post" action="https://yts.mx/search-movies" accept-charset="UTF-8">
-                <input name="_token" type="hidden" value="1f7ecbb9f5612248f10addff06d37501cee143625e62cd0d4e430b3ec0b311c6">
-                    <div id="main-search-fields" style="width: 880px;">
-                        <p class="searchTerm">Search Term:</p>
-                            <input name="keyword" autocomplete="off" type="search">
-                                <div class="selects-container">
-                                    <p>Genre:</p>
-                                    <select name="genre">
-                                        <option value="all">All</option>
-                                        <option value="action">Action</option>
-                                        <option value="adventure">Adventure</option>
-                                        <option value="animation">Animation</option>
-                                        <option value="comedy">Comedy</option>
-                                        <option value="crime">Crime</option>
-                                        <option value="documentary">Documentary</option>
-                                        <option value="drama">Drama</option>
-                                        <option value="family">Family</option>
-                                        <option value="fantasy">Fantasy</option>
-                                        <option value="history">History</option>
-                                        <option value="horror">Horror</option>
-                                        <option value="music">Music</option>
-                                        <option value="mystery">Mystery</option>
-                                        <option value="romance">Romance</option>
-                                        <option value="sci-fi">Sci-Fi</option>
-                                        <option value="talk-show">Talk-Show</option>
-                                        <option value="thriller">Thriller</option>
-                                        <option value="war">War</option>
-                                        <option value="western">Western</option>
-                                    </select>
-                                    <span class="select-arrow">
-                                        <i class="fas fa-chevron-down"></i>
-                                    </span>
-                                </div>
-                                <div class="selects-container">
-                                    <p>Rating:</p>
-                                    <select name="rating">
-                                    <option value="0">All</option>
-                                        <option value="9">9+</option>
-                                        <option value="8">8+</option>
-                                        <option value="7">7+</option>
-                                        <option value="6">6+</option>
-                                        <option value="5">5+</option>
-                                        <option value="4">4+</option>
-                                        <option value="3">3+</option>
-                                        <option value="2">2+</option>
-                                        <option value="1">1+</option>
-                                    </select>
-                                    <span class="select-arrow">
-                                        <i class="fas fa-chevron-down"></i>
-                                    </span>
-                                </div>
-                        </div>
-        </div>
-    </div>
-    <div id="main-search-btn">
-        <input class="button-green-download2-big" type="submit" value="Search">
-        </div>
-    </form>
-</div>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Add Movie</title>
+            <link rel="stylesheet" href="styles.css">
+        </head>
+        <body>
+            <h1>Add Movie</h1>
+            <form id="addMovieForm" action="/user/admin" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="poster">Poster URL:</label>
+                <input type="text" id="poster" name="poster" required><br><br>
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" required><br><br>
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating" name="rating" required><br><br>
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" name="genre" required><br><br>
+                <button type="submit">Add Movie</button>
+            </form>
+        
+            <script src="script.js"></script>
+        </body>
+        </html>
+        
+  
 
  <!-- FOOTER SECTION -->
  <footer class="section">
@@ -232,6 +227,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
     <!-- APP SCRIPT -->
     <script src="/js/nav-foot.js"></script>
+
+    <script>
+ 
+    </script>
 
 </body>
 
