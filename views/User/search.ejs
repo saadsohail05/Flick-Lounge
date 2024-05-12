@@ -82,17 +82,6 @@
                 </div>
                 <div class="col-md-2">
                     <div class="input-group">
-                        <span class="input-group-text">Type:</span>
-                        <select name="type" class="form-select">
-                            <option value="All">All</option>
-                            <option value="Movies">Movies</option>
-                            <option value="Series">Series</option>
-                            <option value="Animation">Animation</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="input-group">
                         <span class="input-group-text">Genre:</span>
                         <select name="genre" class="form-select">
                             <option value="all">All</option>
@@ -116,6 +105,25 @@
                             <option value="war">War</option>
                             <option value="western">Western</option>
                         </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <span class="input-group-text">Year</span>
+                            <select name="year" class="form-select">
+                                <option value="0">All</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2020-2024">2020-now</option>
+                                <option value="2010-2024">2010-now</option>
+                                <option value="2010-2019">2010-2019</option>
+                                <option value="2000-2009">2000-2009</option>
+                                <option value="1990-1999">1990-1999</option>
+                                <option value="1980-1989">1980-1989</option>
+                                <option value="1970-1979">1970-1979</option>
+                                <option value="1950-1969">1950-1969</option>
+                                <option value="1900-1949">1900-1949</option>
+                            </select>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -270,35 +278,36 @@
     <script src="/js/nav-foot.js"></script>
 
     <script>
-    document.getElementById('search-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const keyword = document.getElementById('keyword').value;
-    const type = document.getElementById('type').value;
-    const genre = document.getElementById('genre').value;
-    const rating = document.getElementById('rating').value;
-    const page = 1; // Initial page number
 
-    const response = await fetch('/user/search', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ keyword, type, genre, rating, page })
-    });
+// document.getElementById('search-form').addEventListener('submit', async (e) => {
+//     e.preventDefault();
+//     const keyword = document.getElementById('keyword').value;
+//     const genre = document.getElementById('genre').value;
+//     const rating = document.getElementById('rating').value;
+//     const year = document.getElementById('year').value;
+//     const page = 1; // Initial page number
 
-    if (response.ok) {
-        const movies = await response.json();
-        // Update frontend to display movies and pagination
-        console.log(movies);
-        // Assuming you have a function to display movies
-        displayMovies(movies);
-        // Assuming you have a function to display pagination
-        displayPagination();
-    } else {
-        console.error('Error:', response.statusText);
-    }
-});
+//     const response = await fetch('/user/search', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({ keyword, genre, rating, page })
+//     });
+
+//     if (response.ok) {
+//         const movies = await response.json();
+//         // Update frontend to display movies and pagination
+//         console.log(movies);
+//         // Assuming you have a function to display movies
+//         displayMovies(movies);
+//         // Assuming you have a function to display pagination
+//         displayPagination();
+//     } else {
+//         console.error('Error:', response.statusText);
+//     }
+// });
+
 
 function displayMovies(movies) {
     const container = document.getElementById('movies-container');
