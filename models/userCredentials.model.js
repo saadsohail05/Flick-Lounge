@@ -19,6 +19,10 @@ isverified:{
     type:Boolean,
     default:false
 },
+token:{
+type:String,
+default:null
+},
 isadmin:{
     type:Boolean,
     default:false

@@ -3,6 +3,8 @@ const router = express.Router();
 const path = require('path');
 const userController = require('../controllers/user.controller');
 
+
+
 router.get('/signin', (req, res) => {
     res.render('User/signin', { title: 'Sign In' });
 });
