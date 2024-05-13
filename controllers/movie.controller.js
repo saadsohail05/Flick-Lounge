@@ -51,3 +51,16 @@ exports.addMovie = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+exports.getLatestMovies = async (req, res) => {
+    try {
+      // Query the database to get the latest movies
+      const latestMovies = await Movie.find().limit(5); 
+      console.log(latestMovies);
+      res.render('user/moviespage', { movies: latestMovies });
+      
+    } catch (error) {
+      console.error("Error fetching latest movies:", error);
+      res.status(500).send('Internal Server Error');
+    }
+  };

@@ -34,8 +34,8 @@
 
 
       
-        <!-- Navbar & Hero Start -->
-        <div class="container-fluid position-relative p-0">
+         <!-- Navbar & Hero Start -->
+         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
                     <!-- <a href="#" class="logo">
@@ -51,7 +51,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="/user/search/" class="nav-item nav-link ">Browse</a>
-                        <a href="/user/movies/" class="nav-item nav-link ">Movies</a>
+                        <a href="/user/moviespage/" class="nav-item nav-link ">Movies</a>
                         <a href="about.html" class="nav-item nav-link">Lists</a>
                         <a href="services.html" class="nav-item nav-link">Services</a>
                         <a href="packages.html" class="nav-item nav-link">Packages</a>
@@ -59,14 +59,27 @@
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                         <a href="/user/admin" class="nav-item nav-link">Admin</a>
                     </div>
-                    <a href="/user/signin/" class="btn btn-hover">
-                        <span>Sign in</span>
-                    </a>
-                    <a href="/user/signup/" class="btn btn-hover">
-                        <span>Sign up</span>
-                    </a>
+                    <div class="user-actions">
+                        <% if (userSignedIn) { %> <!-- Note: No need to check for 'true' string here -->
+                            <!-- If user is signed in -->
+                            <div class="user-profile">
+                                <!-- Display user's profile image -->
+                                <img src="" alt="Profile Image">
+                            </div>
+                        <% } else { %>
+                            <!-- If user is not signed in -->
+                            <a href="/user/signin/" class="btn btn-hover sign-in">
+                                <span>Sign in</span>
+                            </a>
+                            <a href="/user/signup/" class="btn btn-hover sign-up">
+                                <span>Sign up</span>
+                            </a>
+                        <% } %>
+                    </div>
+        
                 </div>
             </nav>
+
 
 <!-- Carousel Start -->
 <div class="carousel-header">

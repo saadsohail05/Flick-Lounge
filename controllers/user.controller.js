@@ -80,14 +80,19 @@ return OTP;
       }
       if(user)
         // Password is correct, sign in successful
-        // res.status(200).json({ message: 'Sign-in successful', userId: user._id }); 
-        res.redirect('/')
+        // res.status(200).cookie("token",token,option).json({ success: true, token, user});
+          //signInTrueToChangeNavbar
+          res.redirect('/true')
+
       } catch (error) {
         // Handle any errors that occur during sign-in
         console.error('Error in sign-in:', error);
         res.status(500).json({ message: 'Internal server error' });
       }
     };
+
+    //for verification 
+
     exports.verify=(async (req, res) => {
       try {
         const { verificationCode } = req.body;

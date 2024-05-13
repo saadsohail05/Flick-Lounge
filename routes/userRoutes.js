@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const userController = require('../controllers/user.controller');
+const movieController = require('../controllers/movie.controller');
 
 
 
@@ -28,6 +29,9 @@ router.get('/search', (req, res) => {
     res.render('User/search', { title: 'Search' });
 
 });
+
+router.get('/moviespage', movieController.getLatestMovies);
+
 
 router.get('/moviestats', (req, res) => {
     res.render('User/moviestats', { title: 'Your Statistics' });

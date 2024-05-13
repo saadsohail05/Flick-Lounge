@@ -6,7 +6,9 @@ const movieSchema = new Schema({
     year: Number,
     ratingValue: Number,
     genre: String,
+    runtime: String,
     summary_text: String
 });
 const Movie = model('Movie', movieSchema);
 module.exports = Movie;
+    
