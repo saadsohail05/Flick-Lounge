@@ -2,6 +2,8 @@
   const { sendEmail } = require('../mail/mail');
   const otpGenerator = require('otp-generator')
   const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const session = require('express-session');
 
 
  // Generate a random 6-digit OTP
@@ -44,7 +46,7 @@ return OTP;
     const text = `Hi ${username},\n\nYour OTP (One-Time Password) for verification is: ${otp}`;
     await sendEmail(email, subject, text);
     res.render('user/verifyemail', { email });
-    
+
 
     
     } catch (error) {
