@@ -1,6 +1,8 @@
   const UserCredentials = require('../models/userCredentials.model');
   const { sendEmail } = require('../mail/mail');
   const otpGenerator = require('otp-generator')
+  const bcrypt = require('bcrypt');
+
 
  // Generate a random 6-digit OTP
   const generateOTP=()=>{
@@ -17,7 +19,8 @@ return OTP;
     try {
       // Extract username, email, and password from request body
       const { username, email, password } = req.body;
-
+      // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
       // Check if the username or email already exists in the database
       const existingUser = await UserCredentials.findOne(
           { $or:[
@@ -28,8 +31,8 @@ return OTP;
       if (existingUser) {
           return res.render('user/signup', { msg: 'Username or email already exists' });
       }
-      // Create a new user instance
-   const user= await UserCredentials.create({ username, email, password });
+     // Create a new user instance
+     const user = await UserCredentials.create({ username, email, password: hashedPassword });
       // Respond with a success message
       // res.status(201).json({ message: 'User created successfully' });
     
@@ -41,6 +44,8 @@ return OTP;
     const text = `Hi ${username},\n\nYour OTP (One-Time Password) for verification is: ${otp}`;
     await sendEmail(email, subject, text);
     res.render('user/verifyemail', { email });
+    
+
     
     } catch (error) {
       // Handle any errors that occur during sign-up
@@ -63,13 +68,14 @@ return OTP;
           // Render the signin view with an error message
           return res.render('user/signin', { error: "That Email Address doesn't exist" });
         }
-        // Check if the provided password matches the user's password
-        if (user.password !== password) {
+      // Check if the provided password matches the hashed password in the database
+      const passwordMatch = await bcrypt.compare(password, user.password);
+      if (!passwordMatch) {
           // Render the signin view with an error message
           return res.render('user/signin', { error: 'Invalid Password' });
-        }
+      }
         // Password is correct, sign in successful
-        // res.status(200).json({ message: 'Sign-in successful', userId: user._id });
+        // res.status(200).json({ message: 'Sign-in successful', userId: user._id }); 
         res.redirect('/')
       } catch (error) {
         // Handle any errors that occur during sign-in
