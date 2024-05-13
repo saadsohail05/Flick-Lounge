@@ -49,4 +49,6 @@ router.get('/verify-email', (req, res) => {
     res.render('User/verifyemail', { title: 'Verify Email' });
 
 });
+router.post('/verify-email', userController.verify);
+
 module.exports = router;

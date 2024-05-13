@@ -14,6 +14,18 @@ password:{
     type:String,
     required:true
   
+},
+isverified:{
+    type:Boolean,
+    default:false
+},
+isadmin:{
+    type:Boolean,
+    default:false
+},
+otp:{
+    type:String,
+    default:null
 }
 },{timestamps:true});
 // can add profile img and role and password hashing

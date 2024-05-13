@@ -2,13 +2,11 @@
   const { sendEmail } = require('../mail/mail');
   const otpGenerator = require('otp-generator')
   const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const session = require('express-session');
 
 
  // Generate a random 6-digit OTP
   const generateOTP=()=>{
-  const OTP = otpGenerator.generate(6,{
+  const OTP = otpGenerator.generate(6,{ 
   upperCaseAlphabets: false,
   specialChars:false
 
@@ -16,46 +14,46 @@ const session = require('express-session');
 return OTP;
   };
 
-// Signup a new user
   exports.signup = async (req, res) => {
     try {
-      // Extract username, email, and password from request body
-      const { username, email, password } = req.body;
-      // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
-      // Check if the username or email already exists in the database
-      const existingUser = await UserCredentials.findOne(
-          { $or:[
-              { username }, 
-              { email }
-          ] 
-      });
-      if (existingUser) {
-          return res.render('user/signup', { msg: 'Username or email already exists' });
-      }
-     // Create a new user instance
-     const user = await UserCredentials.create({ username, email, password: hashedPassword });
-      // Respond with a success message
-      // res.status(201).json({ message: 'User created successfully' });
-    
-    // Generate OTP
-    const otp = generateOTP();
+        // Extract username, email, and password from request body
+        const { username, email, password } = req.body;
 
-    // Send OTP via email
-    const subject = 'Verification OTP for FlickLounge';
-    const text = `Hi ${username},\n\nYour OTP (One-Time Password) for verification is: ${otp}`;
-    await sendEmail(email, subject, text);
-    res.render('user/verifyemail', { email });
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
 
+        // Check if the username or email already exists in the database
+        const existingUser = await UserCredentials.findOne({ $or: [{ username }, { email }] });
+        if (existingUser) {
+            return res.render('user/signup', { msg: 'Username or email already exists' });
+        }
 
-    
+        // Generate OTP
+        const otp = generateOTP();
+
+        // Send OTP via email
+        const subject = 'Verification OTP for FlickLounge';
+        const text = `Hi ${username},\n\nYour OTP (One-Time Password) for verification is: ${otp}`;
+        await sendEmail(email, subject, text);
+
+        // Create a new user instance with hashed password and OTP
+        const user = await UserCredentials.create({
+            username,
+            email,
+            password: hashedPassword,
+            otp: otp // Add the generated OTP to the user document
+        });
+
+        // Respond with a success message
+        res.render('user/verifyemail', { email });
+
     } catch (error) {
-      // Handle any errors that occur during sign-up
-      console.error('Error in sign-up:', error);
-      res.status(500).json({ message: 'Internal server error' });
+        // Handle any errors that occur during sign-up
+        console.error('Error in sign-up:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
-    
-  };
+};
+
   // Signin a user
   exports.signin = async (req, res) => {
       try {
@@ -85,3 +83,29 @@ return OTP;
         res.status(500).json({ message: 'Internal server error' });
       }
     };
+    exports.verify=(async (req, res) => {
+      try {
+        const { verificationCode } = req.body;
+        console.log(req.body);
+        console.log(verificationCode);
+        // Find the user with the matching OTP
+        const user = await UserCredentials.findOne({ otp: verificationCode });
+        console.log(user);
+        if (!user) {
+          // If no user is found with the provided OTP, render the view with an error message
+          return res.render('user/verifyemail', { email: user.email, error: 'Invalid verification code' });
+        }
+    
+        // Update the user's isverified field to true and remove the OTP
+        user.isverified = true;
+        user.otp = null;
+        await user.save();
+        // Log the user object after making changes
+        
+        // Redirect the user to the sign-in page
+        return res.render('user/signin');
+      } catch (error) {
+        console.error('Error verifying email:', error);
+        res.status(500).render('error', { error: 'Internal server error' });
+      }
+    });

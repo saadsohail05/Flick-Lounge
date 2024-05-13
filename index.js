@@ -5,6 +5,7 @@ const movieRoutes = require('./routes/movieRoutes');
 const path = require('path');
 const mongoose = require('mongoose');
 
+
 const PORT = process.env.PORT || 3000;
 const app = express();
 
@@ -21,16 +22,6 @@ mongoose.connect('mongodb://localhost:27017/FlickLounge').then(() => {
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
-
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
-app.use(cookieParser());
-app.use(session({
-    secret: 'Flicklounge', // Provide a secret key here
-    resave: false,
-    saveUninitialized: true,
-    cookie: { path: '/', httpOnly: true, secure: false, maxAge: 24 * 60 * 60 * 1000 } // Adjust cookie settings as needed
-}));
 
 app.use('/', indexRoute);
 app.use('/user', userRoutes);
