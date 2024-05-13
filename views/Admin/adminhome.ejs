@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Home</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        background-color: rgb(24, 22, 22);
+        color: white; /* Set text color to white */
+    }
+    .navbar-dark .navbar-brand,
+    .navbar-dark .navbar-nav .nav-link {
+        color: white !important; /* Set text color of navbar items to white */
+    }
+    tbody, tr {
+        color: white; /* Set table item color to white */
+    }
+    .jumbotron {
+        background-color: rgb(0, 0, 0); /* Set background color of container with mt-5 class to orange */
+        padding: 20px; /* Add some padding for better appearance */
+        border-radius: 10px; /* Add border radius for rounded corners */
+    }
+</style>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand"  href="/admin/home">Admin Panel</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/viewusers">View Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/deleteusers">Delete Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/createmovie">Create Movies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/deletemovie">Delete Movies</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5 text-center"> <!-- Added text-center class here -->
+  <div class="jumbotron">
+    <h1>Welcome, Admin!</h1>
+    <p>This is the admin homepage. You can manage users and perform various administrative tasks from here.</p> <!-- Removed reference to View Statistics -->
+    <a href="/admin/adminstat" class="btn btn-primary">View Statistics</a>
+  </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -8,7 +8,7 @@ const userController = require('../controllers/user.controller');
 router.get('/signin', (req, res) => {
     res.render('User/signin', { title: 'Sign In' });
 });
-
+ 
 router.post('/signin', userController.signin);
 
 router.get('/signup', (req, res) => {
@@ -38,10 +38,10 @@ router.get('/movielists', (req, res) => {
 
 });
 
-router.get('/admin', (req, res) => {
-    res.render('User/admin', { title: 'Admin Movie' });
+// router.get('/admin', (req, res) => {
+//     res.render('Admin/viewuser', { title: 'Admin Movie' });
 
-});
+// });
 
 router.get('/userProfile', (req, res) => {
     res.render('User/profile', { title: 'Your Profile' });

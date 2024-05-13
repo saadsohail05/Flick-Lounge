@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+    
+        body {
+            background-color: rgb(24, 22, 22);
+
+            padding-top: 50px;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: white !important; /* Set text color of navbar items to white */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Set height of container to full viewport height */
+        }
+        .statistic-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px; /* Increased padding */
+            margin-bottom: 40px; /* Increased margin */
+            width: 300px; /* Increased width */
+        }
+        .statistic-icon {
+            font-size: 60px; /* Increased font size */
+            color: #007bff;
+        }
+        .statistic-title {
+            font-size: 30px; /* Increased font size */
+            margin-bottom: 20px; /* Increased margin */
+        }
+        .statistic-value {
+            font-size: 48px; /* Increased font size */
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top"> <!-- Added fixed-top class here -->
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Admin Panel</a>
+
+    <!-- Toggler/collapsible Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/viewusers">View Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/deleteusers">Delete Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/createmovie">Create Movies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/deletemovie">Delete Movies</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="statistic-box">
+                <div class="statistic-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="statistic-title">Total Users</div>
+                <div class="statistic-value"><%= totalUsers %></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="statistic-box">
+                <div class="statistic-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <div class="statistic-title">Total Movies</div>
+                <div class="statistic-value"><%= totalMovies %></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="statistic-box">
+                <div class="statistic-icon">
+                    <i class="far fa-clock"></i>
+                </div>
+                <div class="statistic-title">Average Runtime</div>
+                <div class="statistic-value"><%= averageRuntime %> minutes</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

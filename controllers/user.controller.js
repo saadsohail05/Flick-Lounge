@@ -2,15 +2,8 @@
   const { sendEmail } = require('../mail/mail');
   const otpGenerator = require('otp-generator')
   const bcrypt = require('bcrypt');
-  const jwt = require('jsonwebtoken');
-  const cookieParser=require('cookie-parser');
 
 
-
-  const express = require('express');
-  const app = express();
-
- app.use(cookieParser());
  // Generate a random 6-digit OTP
   const generateOTP=()=>{
   const OTP = otpGenerator.generate(6,{ 
@@ -33,7 +26,7 @@ return OTP;
         const existingUser = await UserCredentials.findOne({ $or: [{ username }, { email }] });
         if (existingUser) {
             return res.render('user/signup', { msg: 'Username or email already exists' });
-        } 
+        }
 
         // Generate OTP
         const otp = generateOTP();
@@ -50,13 +43,7 @@ return OTP;
             password: hashedPassword,
             otp: otp // Add the generated OTP to the user document
         });
-       const token= jwt.sign(
-          {id:user._id,email},"FlickLounge",
-          {
-            expiresIn:"2h"
-          }
-        )
-        user.token=token;
+
         // Respond with a success message
         res.render('user/verifyemail', { email });
 
@@ -81,35 +68,20 @@ return OTP;
           // Render the signin view with an error message
           return res.render('user/signin', { error: "That Email Address doesn't exist" });
         }
+        if (email === 'admin@admin.com' && password === 'Admin123') {
+          // Render the admin page
+          return res.render("Admin/adminhome");
+      }
       // Check if the provided password matches the hashed password in the database
       const passwordMatch = await bcrypt.compare(password, user.password);
       if (!passwordMatch) {
           // Render the signin view with an error message
           return res.render('user/signin', { error: 'Invalid Password' });
       }
-      if(user.isverified===false){
-        return res.render('user/verifyemail', { email: user.email, error: 'Please verify your email' });
-      }
-      else{
-     const token= jwt.sign(
-          {id:user._id},"FlickLounge",
-          {
-            expiresIn:"2h"
-          }
-        )
-        user.token=token;
-        //cookie
-        const option={
-          expires:new Date(Date.now()+3*24*60*60*1000),
-          httpOnly:true
-
-        };
-        // res.status(200).cookie("token",token,option).json({ success: true, token, user});
-
-          res.redirect('/')
-      }
-       
-       
+      if(user)
+        // Password is correct, sign in successful
+        // res.status(200).json({ message: 'Sign-in successful', userId: user._id }); 
+        res.redirect('/')
       } catch (error) {
         // Handle any errors that occur during sign-in
         console.error('Error in sign-in:', error);
