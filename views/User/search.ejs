@@ -27,10 +27,41 @@
 </head>
 
 <style>
-    .card-img-top {
-        height: 300px; /* Adjust the height as needed */
-        object-fit: cover;
-    }
+.card-body {
+    position: relative;
+    height: 10rem;
+    background-color: rgb(48, 48, 48);
+}
+
+.card-body:hover .card-text summary{
+    display: block;
+    transform: translateY(0);
+}
+
+.card-text summary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    display: none;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
+}
+
+.card-title {
+    color: white;
+}
+
+.card-img-top {
+    height: 25rem;
+}
+
+
 </style>
 
 <body>
@@ -72,12 +103,12 @@
  <!-- Search box -->
  <div id="main-search" class="content-dark hidden-sm hidden-xs">
     <div class="container">
-        <form id="search-form" method="post" action="/user/search" accept-charset="UTF-8">
+        <form id="search-form" method="post" action="/user/search?page=1" accept-charset="UTF-8">
             <div class="row">
                 <div class="col-md-6">
                     <div class="input-group">
-                        <span class="input-group-text">Search Term:</span>
-                        <input name="keyword" autocomplete="off" type="search" class="form-control">
+                        <span class="input-group-text">Name:</span>
+                        <input name="keyword" autocomplete="off" type="search" class="form-control" value="Search">
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -85,25 +116,25 @@
                         <span class="input-group-text">Genre:</span>
                         <select name="genre" class="form-select">
                             <option value="all">All</option>
-                            <option value="action">Action</option>
-                            <option value="adventure">Adventure</option>
-                            <option value="animation">Animation</option>
-                            <option value="comedy">Comedy</option>
-                            <option value="crime">Crime</option>
-                            <option value="documentary">Documentary</option>
-                            <option value="drama">Drama</option>
-                            <option value="family">Family</option>
-                            <option value="fantasy">Fantasy</option>
-                            <option value="history">History</option>
-                            <option value="horror">Horror</option>
-                            <option value="music">Music</option>
-                            <option value="mystery">Mystery</option>
-                            <option value="romance">Romance</option>
-                            <option value="sci-fi">Sci-Fi</option>
-                            <option value="talk-show">Talk-Show</option>
-                            <option value="thriller">Thriller</option>
-                            <option value="war">War</option>
-                            <option value="western">Western</option>
+                            <option value="Action">Action</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Animation">Animation</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Crime">Crime</option>
+                            <option value="Documentary">Documentary</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Family">Family</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="History">History</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Music">Music</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Sci-fi">Sci-Fi</option>
+                            <option value="Talk-show">Talk-Show</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="War">War</option>
+                            <option value="Western">Western</option>
                         </select>
                     </div>
                 </div>
@@ -153,23 +184,64 @@
     </div>
 </div>
 
-<div class="movies-container">
+<% if (locals.movies && movies.length > 0) { %>
     <div class="container mt-5">
         <div class="row justify-content-center" id="movies-container">
-            <!-- Movie results will be dynamically added here -->
+            <% movies.forEach(movie => { %>
+                <div class="col-md-2 mb-2">
+                    <div class="card">
+                        <img src="<%= movie.poster_url %>" class="card-img-top" alt="<%= movie.name %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= movie.name %> (<%= movie.year %>)</h5>
+                            <p class="card-text">Rating: <%= movie.ratingValue %></p>
+                            <p class="card-text summary" style="display: none;"><%= movie.summary_text %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
         </div>
     </div>
-</div>
-
-
-  <!-- Pagination -->
-<div class="row justify-content-center">
-    <div class="col-12">
-        <ul class="pagination">
-            <!-- Pagination links will be dynamically added here -->
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <% if (currentPage > 1) { %>
+                <li class="page-item">
+                    <a class="page-link" href="?page=1" aria-label="First">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page=<%= currentPage - 1 %>" aria-label="Previous">
+                        <span aria-hidden="true">&lt;</span>
+                    </a>
+                </li>
+            <% } %>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+                <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                    <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+                </li>
+            <% } %>
+            <% if (currentPage < totalPages) { %>
+                <li class="page-item">
+                    <a class="page-link" href="?page=<%= currentPage + 1 %>" aria-label="Next">
+                        <span aria-hidden="true">&gt;</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page=<%= totalPages %>" aria-label="Last">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            <% } %>
         </ul>
+    </nav>
+<% } else { %>
+    <div class="container mt-5">
+        <p>No movies found.</p>
     </div>
-</div>
+<% } %>
+
+
 
 
  <!-- FOOTER SECTION -->
@@ -279,97 +351,6 @@
 
     <script>
 
-// document.getElementById('search-form').addEventListener('submit', async (e) => {
-//     e.preventDefault();
-//     const keyword = document.getElementById('keyword').value;
-//     const genre = document.getElementById('genre').value;
-//     const rating = document.getElementById('rating').value;
-//     const year = document.getElementById('year').value;
-//     const page = 1; // Initial page number
-
-//     const response = await fetch('/user/search', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({ keyword, genre, rating, page })
-//     });
-
-//     if (response.ok) {
-//         const movies = await response.json();
-//         // Update frontend to display movies and pagination
-//         console.log(movies);
-//         // Assuming you have a function to display movies
-//         displayMovies(movies);
-//         // Assuming you have a function to display pagination
-//         displayPagination();
-//     } else {
-//         console.error('Error:', response.statusText);
-//     }
-// });
-
-
-function displayMovies(movies) {
-    const container = document.getElementById('movies-container');
-    container.innerHTML = ''; // Clear previous results
-
-    movies.forEach(movie => {
-        const card = document.createElement('div');
-        card.classList.add('col-lg-4', 'col-md-6', 'col-sm-12', 'mb-4');
-
-        card.innerHTML = `
-            <div class="card">
-                <img src="${movie.poster}" class="card-img-top" alt="${movie.title}">
-                <div class="card-body">
-                    <h5 class="card-title">${movie.title}</h5>
-                    <p class="card-text">${movie.year} | ${movie.genre}</p>
-                    <a href="${movie.url}" class="btn btn-primary">View Details</a>
-                </div>
-            </div>
-        `;
-
-        container.appendChild(card);
-    });
-}
-
-function displayPagination(totalPages) {
-    const paginationContainer = document.querySelector('.pagination');
-    paginationContainer.innerHTML = '';
-
-    for (let i = 1; i <= totalPages; i++) {
-        const pageLink = document.createElement('li');
-        pageLink.classList.add('page-item');
-        pageLink.innerHTML = `<a class="page-link" href="#" data-page="${i}">${i}</a>`;
-        paginationContainer.appendChild(pageLink);
-    }
-
-    // Add event listeners to pagination links
-    const pageLinks = document.querySelectorAll('.page-link');
-    pageLinks.forEach(link => {
-        link.addEventListener('click', async (e) => {
-            e.preventDefault();
-            const page = parseInt(e.target.dataset.page);
-            // Make another request with the new page number
-            const response = await fetch('/user/search', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ keyword, type, genre, rating, page })
-            });
-
-            if (response.ok) {
-                const movies = await response.json();
-                // Update frontend to display new movies
-                console.log(movies);
-                // Assuming you have a function to display movies
-                displayMovies(movies);
-            } else {
-                console.error('Error:', response.statusText);
-            }
-        });
-    });
-}
 
 
     </script>
