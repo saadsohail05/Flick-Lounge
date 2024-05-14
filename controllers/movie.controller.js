@@ -11,8 +11,25 @@ exports.searchMovies = async (req, res) => {
         let query = {};
         if (keyword!="Search") query.name = keyword;
         if (genre!='all') query.genre = genre;
-        if (rating!=0) query.rating = parseFloat(rating);
-        if (year!=0) query.year = year;
+        // Handle rating query
+       // Handle rating query (as strings)
+       if (rating && rating !== '0') {
+        const numericRating = parseFloat(rating.replace('+', ''));
+        query.$expr = { $gte: [{ $toDouble: "$ratingValue" }, numericRating] };
+    }
+
+
+        // Handle year query (as strings)
+        if (year && year !== '0') {
+            if (year.includes('-')) {
+                const [startYear, endYear] = year.split('-').map(y => y.trim() === 'now' ? new Date().getFullYear().toString() : y.trim());
+                query.year = { $gte: startYear, $lte: endYear };
+            } else {
+                query.year = year;
+            }
+        }
+
+       
        // Execute the query to get total count of movies (for pagination)
        const totalCount = await Movie.countDocuments(query);
         

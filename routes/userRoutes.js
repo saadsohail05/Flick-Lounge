@@ -47,7 +47,7 @@ router.get('/movielists', (req, res) => {
 
 // });
 
-router.get('/userProfile', (req, res) => {
+router.get('/profile', (req, res) => {
     res.render('User/profile', { title: 'Your Profile' });
 
 });
@@ -57,4 +57,7 @@ router.get('/verify-email', (req, res) => {
 });
 router.post('/verify-email', userController.verify);
 
+
+
+  
 module.exports = router;
