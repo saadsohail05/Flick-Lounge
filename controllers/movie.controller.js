@@ -9,7 +9,7 @@ exports.searchMovies = async (req, res) => {
         console.log(req.query);
         // Construct the query object
         let query = {};
-        if (keyword!="Search") query.name = keyword;
+        if (keyword!="Search") query.name = { $regex: new RegExp(keyword, 'i') };
         if (genre!='all') query.genre = genre;
         // Handle rating query
        // Handle rating query (as strings)
