@@ -73,7 +73,6 @@ exports.getLatestMovies = async (req, res) => {
     try {
       // Query the database to get the latest movies
       const latestMovies = await Movie.find().limit(5); 
-      console.log(latestMovies);
       res.render('user/moviespage', { movies: latestMovies });
       
     } catch (error) {
